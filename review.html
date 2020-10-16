@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>review</title>
+  </head>
+  <body>
+
+    <!-- <form method="POST" action="http(s)://www.hashemian.com/tools/form-post-tester.php/thisshouldwork"> -->
+        <p>
+            Please enter your name: 
+            <input type="text" name="yourName" id="yourName"/>
+        </p>
+
+        <p>
+            Are you awesome?
+            <input type="checkbox" id="isAwesome" name="isAwesome" value="yes"/>
+        </p>
+
+        <p>
+            Tell me a little about yourself:
+            <textarea id="bio" name="bio"></textarea>
+        </p>
+
+        <!-- <button id="submit_button">Click here to submit</button> -->
+
+        <input type="submit" id="submitInput" value="Click to submit the form." />
+
+    <!-- </form> -->
+    <script>
+
+      var inputName = document.getElementById('yourName');
+      var inputAwesome = document.getElementById('isAwesome');
+      var inputBio = document.getElementById('bio');
+      var inputSubmit = document.getElementById('submitInput');
+
+      inputSubmit.addEventListener('click', createObject);
+
+      function createObject() {
+        var form = {
+          name: inputName.value,
+          isAwesome: inputAwesome.value,
+          inputBio: inputBio.value
+        }
+        console.log("form: ", form);
+        writeDataToLocalStorage(form);
+      }
+
+      function writeDataToLocalStorage(key, value) {
+        console.log("Got data to write: ", key);
+
+        if(typeof value == "string") {
+          localStorage.setItem(key, value);
+        } else if(typeof value == "object") {
+          localStorage.setItem(key, JSON.stringify(value));
+        }
+      }
+
+      /////////////////////////////////////
+      // fetch
+      ////////////////////////////////////
+
+      var url = "https://mufall2020-bit240.github.io/monsters_api/monsters/easy.json"
+
+      fetch(url).then(function(networkRequest) {
+        console.log(networkRequest);
+        return networkRequest.json();
+      }).then(function(jsonData) {
+        console.log("Json Data: ", jsonData);
+      });
+
+    </script>
+  </body>
+</html>

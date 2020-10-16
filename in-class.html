@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>week 8 - in-class</title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <style>
+      /* .square {
+          height: 200px;
+          width: 200px;
+          background-color: lightcoral;
+      } */
+
+
+    </style>
+  </head>
+  <body>
+
+    <i class="nes-icon is-large heart"></i>
+
+    <!-- <div class="square"></div> -->
+
+    <script src="TinyAnimate-master/src/TinyAnimate.js"></script>
+    <script>
+      var heart = document.querySelector('.heart');
+      heart.addEventListener('mouseover', animateElement);
+      
+      function animateElement(){
+        var randomPercent = Math.floor(Math.random() * 100);
+
+        TinyAnimate.animateCSS(heart, 'marginLeft', 'px', 10, randomPercent, 2500, 'easeOutElastic', function() {
+        console.log('done!!!111oneone');
+        // heart.setAttribute('x', X);
+        });
+      }
+    </script>
+  </body>
+</html>
