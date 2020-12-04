@@ -1,3 +1,5 @@
+I could not get the xkcd comic api working so I changed to https://yesno.wtf/api.
+
 1. API
 
 Go to github.com/public-apis/public-apis and find an API that interest you
